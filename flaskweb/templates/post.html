@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<article class="media content-section1">
+  <legend class="post-legend"><h1>Post</h1></legend>
+
+  <div class="media-body">
+      
+    <div class="flex-post-info">                  
+      <img class="post-image" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">   
+      
+      <div class="post-info" >
+        <a class="mr-2" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}:</a>
+        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+      </div>
+    </div>
+
+    <h2><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+    <p class="article-content">{{ post.content }}</p>
+
+    {% if post.author == current_user %}
+
+      <div>
+        <a class="update-btn" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update</a>
+        <a class="delete-btn" href="{{ url_for('posts.delete_post', post_id=post.id) }}" method="POST">Delete</a>
+      </div>
+    {% endif %}
+  </div><br>
+</article>
+
+{% endblock content %}

@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form class="mediaform" method="post">
+    <legend><h1>Filter By Price</h1></legend>  
+
+    <div class="mediaformcontent">
+        <p>Filter Games by Price </p>
+        <select name=price class="filter-select"  >
+            <option selected>Price</option>
+            <option value="Under $10">Under $10</option>
+            <option value="Under $15">Under $15</option>
+            <option value="Under $25">Under $25</option>
+            <option value="Over $25">$25+</option>
+        </select>
+        <button type="submit" class="button-form" >Filter</button><br>
+    </div>  
+</form>
+  
+<form style="padding-bottom: 30px" >
+
+    <div class="mediaformcontent">
+        {% if request.method == 'POST' %}
+            <h1 class="display-4">{{session['games']}} {{session['filter']}}</h1>
+        {% endif %}
+        {% for each in filtered_games %}
+            <h2><a href="{{ each.URL }}"target="blank">{{ each }}</a></h2>
+        {% endfor %}
+    </div>
+</form>
+
+{% endblock content %}

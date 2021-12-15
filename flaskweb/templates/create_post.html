@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <form class="mediaform" method="POST" action="">
+        <legend class=""><h1>{{ legend }}</h1></legend>
+        {{ form.hidden_tag() }}
+
+        <fieldset class="create-post-fieldset">
+            
+            <div class="title-group">
+                {{ form.title.label(class="") }}<br>
+                {% if form.title.errors %}
+                    {{ form.title(class="input-wraper") }}
+                    <div class="error-text">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="input-wraper") }}
+                {% endif %}
+            </div>
+
+            <div class="content-group">
+                {{ form.content.label(class="") }}<br>
+                {% if form.content.errors %}
+                    {{ form.content(class="input-wraper") }}
+                    <div class="error-text">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="input-wraper") }}
+                {% endif %}
+            </div>
+        </fieldset>
+
+        <div class="btnn">
+            {{ form.submit(class="button-form1") }}
+        </div>
+    </form>
+
+{% endblock content %}

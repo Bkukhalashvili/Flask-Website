@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<STYLE>A {text-decoration: none;} </STYLE>
+
+  <section class="section1">
+      <div class="intro-background">
+          <div class="intro-container">
+              <h1>The Interplanetary Combatives Academy</h1>
+              
+              {% if current_user.is_authenticated %}
+                <p>Welcome {{ current_user.username }} To The N7 Training <br>
+                  We recruit officers from every branch of Earth's militaries to partake in grueling courses at Vila Militar in Rio de Janeiro.
+                  The trainees undergo brutal courses, content varied depending on how many times they have trained at the school. <br>
+                  Have you got what it takes?
+                </p>
+              {% else %}
+                <p>Welcome To The N7 Training <br>
+                  We recruit officers from every branch of Earth's militaries to partake in grueling courses at Vila Militar in Rio de Janeiro.
+                  The trainees undergo brutal courses, content varied depending on how many times they have trained at the school. <br>
+                  Have you got what it takes?
+                </p>
+              {% endif %}
+
+              <div class="intro-button"><a href="https://masseffectfanfiction.fandom.com/wiki/Interplanetary_Combatives_Academy" 
+                  target="_blank" >Learn More</a>
+              </div>  
+          </div>
+      </div>
+  </section>
+
+  <section class="section2">
+      <div class="flex-container1">
+          <div class="box">
+              <div class="box-note">
+                  <h2>First time at the N7 school</h2>
+                  <p>If this is your first time at the N7 school, you participate in scenarios experienced by the elite units 
+                      of most land-based armies: a typical candidate may be in training more than 20 hours a day, leading small units 
+                      into combat over hostile terrain with little sleep or food. Trainees who do well are awarded an internal designation 
+                      of N1 and are invited to return. Those who return to the school focus on their combat class.
+                  </p>              
+              </div>
+          </div><br>
+          <div class="box">
+              <div class="box-note">
+                <h3>Subsequent courses: N2 - N5</h3>
+                <p>Subsequent courses--N2 through N5--are often held off-planet and include instruction in zero-G combat, 
+                  military free-fall, jetboot/jetpack flight, combat diver qualification, 
+                  close-quarter combatives instructor courses, linguistics, frontline trauma care for 
+                  human and alien biology, and assault procedures. 
+                  Those with specializations may also attend specialized schools related to their field forward observers may attend 
+                  naval gunfire training and close air support courses pilots and mechanized soldiers learn how to drive, maintain, 
+                  and shoot from several types of vehicles and powered armor, communications specialists attend joint communications 
+                  courses. Some known off-school training locations are Jupiter's moon Europa and Arcturus.
+                </p>
+              </div>
+          </div><br>
+          <div class="box">
+              <div class="box-note">
+                <h3>The highest grade of training: N6 (receiving the coveted N7 designation)</h3>
+                <p>The highest grade of training, N6, provides actual combat experience in conflict zones throughout the galaxy. 
+                  From day one, invitees are given basic gear, then separated and stranded on an asteroid with no nav data. 
+                  The test ends when the last person runs out of oxygen. The first few are out of the program. If the trainee survives 
+                  these scenarios in "admirable and effective fashion," he or she finally receives the coveted N7 designation. 
+                  N7 is the only ICT designation that may be worn on field or dress uniforms.
+                </p>
+              </div>
+          </div><br>
+      </div>
+  </section>
+
+  <section class="section3">
+    <h2>Heroes of N7</h2>
+    <div class="flex-container2">
+      <div class="card">
+        <img src="../static/images/1.png" alt="Avatar" style="width:100%">
+        <div class="info">
+          <h3><b>Commander Shepard<br>N7 Alliance Marine / Spectre</b></h3>
+          <div class="quote">
+            <h4>“It's hard enough fighting a war. But it's worse knowing no matter how hard you try, 
+              you can't save them all.”
+            </h4>
+          </div>
+          <div class="about">
+          <p>Jane Shepard was born on April 11, 2154, is a graduate of the Systems Alliance N7 special forces program, 
+            a veteran of the Skyllian Blitz, and is initially assigned to the SSV Normandy in 2183 as Executive Officer.
+            Shepard later becomes the first human to join the Spectres, an elite special task force for the Citadel Council.
+          </p>
+          </div>
+          <div class="card-button"><a href="https://masseffect.fandom.com/wiki/Commander_Shepard" target="_blank" >Read More</a></div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="../static/images/2.jpg" alt="Avatar" style="width:100%">
+        <div class="info">
+          <h3><b>Alec Ryder<br>Pathfinder / Former N7</b></h3>
+          <div class="quote"> 
+            <h4>“Every great moment in our history began with a dream.”</h4>
+          </div>
+          <div class="about">
+          <p> Born  in 2129, he joined the Alliance military
+            and was eventually assigned to Jon Grissom's historic expedition through the Charon Relay.
+            His experience made him a candidate for what would later be known as N7 training.
+            Alec continued military service, most notably on Shanxi in the First Contact War against the turians.
+          </p>
+          </div>
+          <div class="card-button"><a href="https://masseffect.fandom.com/wiki/Alec_Ryder" 
+            target="_blank" >Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section4">
+    <div class="outro-background">
+      <div class="outro-container">
+          <h1>What are you waiting for ?</h1>
+          <p>
+            We recruit officers from every branch of Earth's militaries to partake in grueling courses at Vila Militar in Rio de Janeiro.
+                  The trainees undergo brutal courses, content varied depending on how many times they have trained at the school. <br>
+                  Have you got what it takes?
+          </p>
+          <div 
+            class="outro-button"><a href="{{ url_for('users.register') }}">Join Us Now</a>
+          </div>  
+      </div>
+    </div>
+  </section>
+
+{% endblock%}

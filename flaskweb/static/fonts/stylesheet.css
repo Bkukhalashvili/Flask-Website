@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Segoe UI Semilight';
+    src: url('SegoeUI-Semilight.eot');
+    src: url('SegoeUI-Semilight.eot?#iefix') format('embedded-opentype'),
+        url('SegoeUI-Semilight.woff2') format('woff2'),
+        url('SegoeUI-Semilight.woff') format('woff'),
+        url('SegoeUI-Semilight.ttf') format('truetype'),
+        url('SegoeUI-Semilight.svg#SegoeUI-Semilight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'SegoeUI-Semilight';
+    src: url('../fonts/SegoeUI-Semilight.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/SegoeUI-Semilight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/SegoeUI-Semilight.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/SegoeUI-Semilight.woff') format('woff'), /* Pretty Modern Browsers */
+         url('../fonts/SegoeUI-Semilight.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/SegoeUI-Semilight.svg#SegoeUI-Semilight') format('svg'); /* Legacy iOS */
+}

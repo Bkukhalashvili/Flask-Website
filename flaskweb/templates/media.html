@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <form class="mediaform" action="" method="POST">        
+    <legend><h1>Astronomy Picture of the Day</h1></legend>
+
+        <div class="mediaformcontent">
+            <div>
+                <label for="fname">Date Input (YYYY-MM-DD)</label><br>      
+                <input class="input-wraper" type="text" id="datee" name="datee" placeholder="YYYY-MM-DD">
+            </div><br>
+
+            <div>
+                <label for="gender"> Quality Selection</label><br>
+                <input type="radio" name="quality" id="gender" value="HD">
+                <label for=""> HD</label>
+                <input type="radio" name="quality" value="SD" checked>
+                <label for=""> SD</label>
+            </div><br>
+
+            <button class="button-form" type="submit"> Submit </button>
+        </div>
+    </form>
+
+    <style>
+        label h5 {
+            display: inline;
+        }
+    </style>
+
+    <div class="results">  
+        <h3>Results</h3>
+
+        <label><h5>Retrieval Status:</h5></label> {{session['status']}}
+        {% with errors3=get_flashed_messages(category_filter=["error3"]) %}
+            {% for  msg in errors3 %}
+                <label class="error" style="color: red;">{{ msg }}</label>
+            {% endfor %}
+        {% endwith %}<br>
+
+        <label><h5>Media Type:</h5> {{session['media_type']}}</label><br>
+
+        <label><h5>Date:</h5> {{session['date']}}</label>
+        {% with errors4=get_flashed_messages(category_filter=["error4"]) %}
+            {% for  msg in errors4 %}
+                <label class="error" style="color: red;">{{ msg }}</label>
+            {% endfor %}
+        {% endwith %}<br>
+
+        <label><h5>Quality:</h5> {{session['quality']}}</label><br>
+    </div> 
+
+
+<div class="media1">
+
+    <label><h5>Title:</h5> {{session['title']}}</label><br>
+
+    <label><h5>Explanation:</h5> {{session['explanation']}}</label><br>
+
+    {% if media_type == video %}
+
+        <a href="{{session['vid_url']}}" target="_blank">
+            <img src="{{session['thumb_url']}}" />
+        </a>
+
+    {% endif %}
+
+    {% if media_type == image %}
+
+        <a href="{{session['img_link']}}" target="_blank">
+            <img src="{{session['img_link']}}" />
+        </a>
+
+    {% endif %}
+</div>
+
+{% endblock content %}

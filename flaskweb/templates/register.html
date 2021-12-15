@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="flex-container4">
+
+    <form id='register' method="POST" action="">
+        {{ form.hidden_tag() }}
+        <legend><h1>Register</h1></legend>
+
+            <div class="group1">
+                <div class="fisrt_name-div">
+                    {{ form.first_name.label(class="") }}<br>
+                    {% if form.first_name.errors %}
+                        {{ form.first_name(class="input-wraper") }}
+                        <div class="error-text">
+                            {% for error in form.first_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.first_name(class="input-wraper") }}
+                    {% endif %}
+                </div>
+
+                <div class="last_name-div">
+                    {{ form.last_name.label(class="side-label") }}<br>
+                    {% if form.last_name.errors %}
+                        {{ form.last_name(class="input-wraper1") }}
+                        <div class="error-text1">
+                            {% for error in form.last_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.last_name(class="input-wraper1") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="group2">
+                <div class="username-div">
+                    {{ form.username.label(class="") }}<br>
+                    {% if form.username.errors %}
+                        {{ form.username(class="input-wraper") }}
+                        <div class="error-text">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="input-wraper") }}
+                    {% endif %}
+                </div>
+
+                <div class="">
+                    {{ form.email.label(class="side-label") }}<br>
+                    {% if form.email.errors %}
+                        {{ form.email(class="input-wraper1") }}
+                        <div class="error-text1">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="input-wraper1") }}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="group3">
+                <div class="password-div1">
+                    {{ form.password.label(class="") }}<br>
+                    {% if form.password.errors %}
+                        {{ form.password(class="input-wraper") }}
+                        <div class="error-text">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="input-wraper") }}
+                    {% endif %}
+                </div>
+                <div class="">
+                    {{ form.confirm_password.label(class="side-label") }}<br>
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="input-wraper1") }}
+                        <div class="error-text1">
+                            {% for error in form.confirm_password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.confirm_password(class="input-wraper1") }}
+                    {% endif %}
+                </div>
+            </div>
+
+        <div class="testing">   
+            <div class="btn">
+                {{ form.submit(class="button-form1") }}
+            </div>
+
+            <div class="sign1">
+                <p> Already Have An Account?  <a href="{{ url_for('users.login') }}">Sign In </a></p>        
+            </div>
+        </div> 
+    </form>
+    <img src="../static/images/4.png" alt="banner-image" class="img_options1">
+</section>
+
+{% endblock content %}
