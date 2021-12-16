@@ -11,6 +11,7 @@ import requests
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+# user table in db
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -25,7 +26,7 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.image_file}')"
 
-
+# post table in db
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
@@ -145,6 +146,7 @@ def pars_currency():
     # print('official: ' + gbp_offi + ' ₾', 'sell: ' + gbp_sell + ' ₾', 'buy: ' + gbp_buy + ' ₾')
 
 
+# games table in db
 class Games(db.Model):
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)

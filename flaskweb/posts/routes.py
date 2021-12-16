@@ -7,7 +7,7 @@ from flaskweb.posts.forms import PostForm
 posts = Blueprint('posts', __name__)
 
 
-# Creating new posts from here
+# Creating new posts
 @posts.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -28,7 +28,7 @@ def post(post_id):
     return render_template('post.html', title=post.title, post=post)
 
 
-# Updating existing posts from here 
+# Updating existing posts 
 @posts.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_post(post_id):
@@ -49,7 +49,7 @@ def update_post(post_id):
                            form=form, legend='Update Post')
 
 
-# Deleting existing posts from here
+# Deleting existing posts
 @posts.route("/post/<int:post_id>/delete", methods=['GET','POST'])
 @login_required
 def delete_post(post_id):

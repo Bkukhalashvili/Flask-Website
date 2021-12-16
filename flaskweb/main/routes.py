@@ -18,7 +18,7 @@ def news():
     return render_template('news.html', title='News', posts=posts)
 
 
-# you can filter data from steam_games.db
+# you can filter data from games table in site.db
 @main.route('/filter', methods=['GET', 'POST'])
 def filter():
     
