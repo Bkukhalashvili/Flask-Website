@@ -12,7 +12,6 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 # user table in db
-
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(20), unique=False, nullable=False)
@@ -36,6 +35,17 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+# games table in db
+class Games(db.Model):
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.Text, nullable=False)
+    price = db.Column(db.Integer, nullable=False)
+    URL = db.Column(db.Text, nullable=False)
+    
+    def __str__(self):
+        return f'Game title: {self.title}, Price: ${self.price}'
 
 
 # nasas api (Astronomy Picture of the Day)
@@ -144,15 +154,3 @@ def pars_currency():
     pars_currency.gbp_buy = ''.join(gbp_b).strip()
     session['gbp_buy'] = pars_currency.gbp_buy
     # print('official: ' + gbp_offi + ' ₾', 'sell: ' + gbp_sell + ' ₾', 'buy: ' + gbp_buy + ' ₾')
-
-
-# games table in db
-class Games(db.Model):
-
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    title = db.Column(db.Text, nullable=False)
-    price = db.Column(db.Integer, nullable=False)
-    URL = db.Column(db.Text, nullable=False)
-    
-    def __str__(self):
-        return f'Game title: {self.title}, Price: ${self.price}'

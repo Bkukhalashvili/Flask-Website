@@ -81,7 +81,7 @@ def media():
             session.pop('thumb_url', None)
             session.pop('vid_url', None)
 
-            flash('Please Enter The Date', 'error2') #!###
+            flash('Please Enter The Date', 'error2')
 
             return render_template('media.html', title='Media')
     return render_template('media.html', title='Media')
