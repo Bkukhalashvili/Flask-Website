@@ -49,5 +49,5 @@ How to do this on :
 
 ## Run the project
 
-Before running the project install all the dependencies, for that type: ```pip install -r requirements.txt``` in the terminal. <br>
+Before running the project install all the dependencies, type: ```pip install -r requirements.txt``` in the terminal. <br>
 To run the project type: ```python run.py``` in the terminal.
