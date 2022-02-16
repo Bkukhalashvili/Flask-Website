@@ -31,20 +31,25 @@ def filter():
             filtered_games = Games.query.filter(Games.price <= '10').all()
             return render_template("filter.html", filtered_games=filtered_games, title='Filter')
 
-        if select == 'Under $15':
+        elif select == 'Under $15':
             session['filter'] = select
             filtered_games = Games.query.filter(Games.price <= '15').all()
             return render_template("filter.html", filtered_games=filtered_games, title='Filter')
 
-        if select == 'Under $25':
+        elif select == 'Under $25':
             session['filter'] = select
             filtered_games = Games.query.filter(Games.price <= '25').all()
             return render_template("filter.html", filtered_games=filtered_games, title='Filter')
 
-        if select == 'Over $25':
+        elif select == 'Over $25':
             session['filter'] = select
             filtered_games = Games.query.filter(Games.price >= '25').all()
             return render_template("filter.html", filtered_games=filtered_games, title='Filter')
+        
+        else:
+            session.pop('games', None)
+            session.pop('filter', None)
+            return render_template('filter.html', title='Filter')    
     else:
         session.pop('games', None)
         session.pop('filter', None)
